@@ -33,6 +33,7 @@ public final class JTextFieldPopup extends javax.swing.JTextField implements Mou
     private Color phColor = new Color(0, 0, 0);
     private boolean validar = false;
     private boolean band = true;
+    private boolean SOLONUMEROS = false;
     JPopupMenu menuopciones = new JPopupMenu();
     JMenuItem copiar, pegar, cortar;
 
@@ -168,7 +169,14 @@ public final class JTextFieldPopup extends javax.swing.JTextField implements Mou
     }
 
     @Override
-    public void keyTyped(KeyEvent e){        
+    public void keyTyped(KeyEvent e){
+        if(isSOLONUMEROS()){
+            char t = e.getKeyChar();
+            if (Character.isLetter(t)) {
+                e.consume();
+                getToolkit().beep();
+            }
+        }        
         if (campodetexto != null) {
             if (e.getKeyChar() == 10){
                 if(isValidar()){
@@ -270,5 +278,13 @@ public final class JTextFieldPopup extends javax.swing.JTextField implements Mou
             return 0;
         }
     }         
+
+    public boolean isSOLONUMEROS() {
+        return SOLONUMEROS;
+    }
+
+    public void setSOLONUMEROS(boolean SOLONUMEROS) {
+        this.SOLONUMEROS = SOLONUMEROS;
+    }
 
 }
