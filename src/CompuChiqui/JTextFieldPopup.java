@@ -283,7 +283,7 @@ public final class JTextFieldPopup extends javax.swing.JTextField implements Mou
         return SOLONUMEROS;
     }
 
-    public void setSOLONUMEROS(boolean SOLONUMEROS) {
+    public void setSOLONUMEROS(boolean SOLONUMEROS){
         this.SOLONUMEROS = SOLONUMEROS;
     }
 
